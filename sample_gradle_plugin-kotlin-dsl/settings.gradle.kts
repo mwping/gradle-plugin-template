@@ -1,3 +1,3 @@
-rootProject.name = "gradle-plugin-in-java"
+rootProject.name = "gradle-plugin-in-kotlin"
 
 include("greeting-plugin")

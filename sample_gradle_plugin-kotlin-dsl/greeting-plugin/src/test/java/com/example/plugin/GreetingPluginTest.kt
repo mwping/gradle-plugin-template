@@ -9,7 +9,7 @@ class GreetingPluginTest {
     fun pluginRegistersATask() {
         // Create a test project and apply the plugin
         val project = ProjectBuilder.builder().build()
-        project.plugins.apply("com.example.plugin.greeting")
+        project.plugins.apply("com.mwping.android.plugin.greeting")
 
         // Verify the result
         Assert.assertNotNull(project.tasks.findByName("greet"))
