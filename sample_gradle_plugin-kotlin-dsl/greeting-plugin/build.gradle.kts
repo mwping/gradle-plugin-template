@@ -30,7 +30,7 @@ publishing {
     repositories {
         maven {
             name = "Github"
-            url = uri("https://maven.pkg.github.com/mwping/gradle-plugin-template")
+            url = uri("https://maven.pkg.github.com/mwping/android-developer")
             credentials {
                 username = System.getenv("GPR_USR") ?: project.findProperty("GPR_USR").toString()
                 password = System.getenv("GPR_KEY") ?: project.findProperty("GPR_KEY").toString()
