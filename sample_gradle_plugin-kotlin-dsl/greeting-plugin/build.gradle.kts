@@ -2,6 +2,7 @@ plugins {
     // Apply the Java Gradle plugin development plugin to add support for developing Gradle plugins
     `java-gradle-plugin`
     `kotlin-dsl`
+    `maven-publish`
 }
 
 repositories {
@@ -14,11 +15,27 @@ dependencies {
     testImplementation("junit:junit:4.13")
 }
 
+group = "com.mwping.android.plugin"
+version = "1.0.0"
+
 gradlePlugin {
     // Define the plugin
     val greeting by plugins.creating {
-        id = "com.example.plugin.greeting"
+        id = "$group.greeting"
         implementationClass = "com.example.plugin.GreetingPlugin"
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "Github"
+            url = uri("https://maven.pkg.github.com/mwping/gradle-plugin-template")
+            credentials {
+                username = System.getenv("GPR_USR") ?: project.findProperty("GPR_USR").toString()
+                password = System.getenv("GPR_KEY") ?: project.findProperty("GPR_KEY").toString()
+            }
+        }
     }
 }
 
